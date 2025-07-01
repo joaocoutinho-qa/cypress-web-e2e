@@ -1,0 +1,17 @@
+{
+  "validUser": {
+    "firstName": "João",
+    "lastName": "Silva",
+    "email": "joao.silva@example.com",
+    "password": "SenhaSegura123#",
+    "confirmation": "SenhaSegura123#"
+  },
+  
+  "invalidUser": {
+    "firstName": "João",
+    "lastName": "Silva",
+    "email": "joao.silva@example.com",
+    "password": "SenhaSegura123#",
+    "confirmation": "SenhaSegura123#"
+  }
+}
