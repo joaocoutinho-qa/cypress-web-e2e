@@ -1,0 +1,19 @@
+# Ignora a pasta de dependências
+node_modules/
+
+# Ignora builds ou dist
+dist/
+build/
+
+# Ignora arquivos de ambiente
+.env
+
+# Ignora logs
+*.log
+
+# Ignora pastas de output do Cypress
+cypress/videos/
+cypress/screenshots/
+
+# Ignora configurações do VS Code
+.vscode/
