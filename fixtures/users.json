@@ -1,17 +1,17 @@
 {
   "validUser": {
     "firstName": "João",
-    "lastName": "Silva",
-    "email": "joao.silva@example.com",
-    "password": "SenhaSegura123#",
-    "confirmation": "SenhaSegura123#"
+    "lastName": "Silva 356",
+    "email": "joao.silva6667@example.com",
+    "password": "Senha123#",
+    "confirmation": "Senha123#"
   },
   
   "invalidUser": {
     "firstName": "João",
-    "lastName": "Silva",
-    "email": "joao.silva@example.com",
-    "password": "SenhaSegura123#",
-    "confirmation": "SenhaSegura123#"
+    "lastName": "Silva 3",
+    "email": "joao.silva36677@example",
+    "password": "Senha123#",
+    "confirmation": "Senha123#"
   }
 }

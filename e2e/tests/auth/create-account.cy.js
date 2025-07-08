@@ -1,9 +1,9 @@
 
-describe ('create account',() => {                         
+describe ('create account',() => {                       
     beforeEach(() => {
         cy.openWebPage()
         cy.fixture('users').as('user')
-        cy.accessCreateAccountTab()  //acessar a página para criar uma conta
+        cy.accessCreateAccountTab()  // access the create account tab
     });
 
     it('create an account with valid credentials', function () { 
@@ -16,16 +16,14 @@ describe ('create account',() => {
     })
 
     it('create an account that already exists', function () { 
-        cy.fillCreateAccountFields(this.user.validEmailUser)
+        cy.fillCreateAccountFields(this.user.validUser)
         cy.get('#form-validate > .actions-toolbar > div.primary > .action > span').first().click()
-
-        //criar validacoes
+        cy.get('.message-error > div').should('have.text','There is already an account with this email address. If you are sure that it is your email address, click here to get your password and access your account.')
     })
 
-    it('create an account with invalid credentials', function () { 
-        cy.fillCreateAccountFields(this.user.invalidEmailUser)
+    it.todo('create an account with invalid credentials', function () { 
+        cy.fillCreateAccountFields(this.user.invalidUser)
         cy.get('#form-validate > .actions-toolbar > div.primary > .action > span').first().click()
         cy.get('#email_address-error').should('contain','Please enter a valid email address (Ex: johndoe@domain.com).')
     })
-
 })

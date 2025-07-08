@@ -1,6 +1,8 @@
 Cypress.Commands.add('openWebPage', () => {
     cy.visit('https://magento.softwaretestingboard.com/')                                         // entrar no site
-    cy.title().should('contain', 'Home Page')                                                     // validação 
+    cy.title()
+        .should('exist')
+        .should('contain', 'Home Page')                                                     // validação 
 });
 
 Cypress.Commands.add('accessCreateAccountTab', () => {
