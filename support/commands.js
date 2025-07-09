@@ -1,13 +1,13 @@
 Cypress.Commands.add('openWebPage', () => {
-    cy.visit('https://magento.softwaretestingboard.com/')                                         // entrar no site
+    cy.visit('https://magento.softwaretestingboard.com/')                                    // entrar no site
     cy.title()
         .should('exist')
         .should('contain', 'Home Page')                                                     // validação 
 });
 
 Cypress.Commands.add('accessCreateAccountTab', () => {
-    cy.get('.panel > .header > .authorization-link > a').click()                                   //clica em sign in
-    cy.get('.block-content > .actions-toolbar > div.primary > .action > span').first().click()     //clica em
+    cy.get('.panel > .header > .authorization-link > a',{timeout: 3000}).click()                                   //clica em sign in
+    cy.get('.block-content > .actions-toolbar > div.primary > .action > span').first().click()     //clica em create account
 });
 
 Cypress.Commands.add('fillCreateAccountFields', (user) => {
