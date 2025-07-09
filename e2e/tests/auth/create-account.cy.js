@@ -21,7 +21,7 @@ describe ('create account',() => {
         cy.get('.message-error > div').should('have.text','There is already an account with this email address. If you are sure that it is your email address, click here to get your password and access your account.')
     })
 
-    it.todo('create an account with invalid credentials', function () { 
+    it('create an account with invalid credentials', function () { 
         cy.fillCreateAccountFields(this.user.invalidUser)
         cy.get('#form-validate > .actions-toolbar > div.primary > .action > span').first().click()
         cy.get('#email_address-error').should('contain','Please enter a valid email address (Ex: johndoe@domain.com).')
