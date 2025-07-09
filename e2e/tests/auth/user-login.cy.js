@@ -1,12 +1,12 @@
-describe('Login', () => {
+describe('User Login', () => {
     beforeEach(() => {
         cy.openWebPage()
-        cy.fixture('users').as('user')
+        cy.fixture('generatedUser').as('user');
         cy.accessLoginPage()
     });
     
-    it.only('Login with valid credentials', function () {
-        cy.fillLoginFields(this.user.validUser)
+    it('Login with valid credentials', function () {
+        cy.fillLoginFields(this.user)
         cy.get('.login-container > .block-customer-login > .block-content > #login-form > .fieldset > .actions-toolbar > div.primary > #send2 > span')
          .click()
     })
