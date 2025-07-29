@@ -29,5 +29,20 @@ module.exports = {
     email: "joao.silva36677@example",
     password: "Senha123#",
     confirmation: "Senha123#"
+  },
+
+  invalidPsw: {
+    firstName: "João",
+    lastName: "Silva 3",
+    email: randomEmail,
+    password: "invalidpassword",
+  },
+
+  invalidEmail: {
+    firstName: "João",
+    lastName: "Silva 3",
+    email: "joao.silva36677@example",
+    password: randomPassword,
+    confirmation: randomPassword
   }
 };
