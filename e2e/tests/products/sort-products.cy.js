@@ -1,9 +1,10 @@
 beforeEach(() => {
         cy.openWebPage()
+        cy.searchForTshirt()
         cy.checkIfSearchIsCorrect()
     })
 
-describe.only('Sort products by product name', () => { 
+describe('Sort products by product name', () => { 
     it('Sort from A-Z = ascendent', () => {
         cy.verifyDescendent('name')
         cy.changeToAscendent()
@@ -18,7 +19,7 @@ describe.only('Sort products by product name', () => {
     })
 })
 
-describe.only('Sort products by price', () => {
+describe('Sort products by price', () => {
     it('Sort from low-high', () => {
         cy.verifyDescendent('price') 
         cy.changeToAscendent()
