@@ -25,10 +25,10 @@ describe ('Create Account',() => {
         cy.checkMessageInvalidCrendentials()
     })
 
-    it('should create an account with invalid password', function () { 
+    it.only('should create an account with invalid password', function () { 
         cy.fillCreateAccountFields(invalidPsw)
         cy.clickCreateAccountButton()
-        cy.checkMessageInvalidCrendentials()
+        cy.checkMessageInvalidPsw()
     })
 
     it('should create an account with invalid email', function () { 

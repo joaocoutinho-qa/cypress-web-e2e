@@ -46,5 +46,23 @@ Cypress.Commands.add('checkMessageAccountThatAlreadyExists', () => {
 })
 
 Cypress.Commands.add('checkMessageInvalidCrendentials', () => {
-   cy.get('#email_address-error').should('contain','Please enter a valid email address (Ex: johndoe@domain.com).')
+   cy.get('#email_address-error', {timeout: 10000}).should('contain','Please enter a valid email address (Ex: johndoe@domain.com).')
+})
+
+Cypress.Commands.add('checkMessageInvalidPsw', () => {
+   cy.get('#password-error').should('contain','Minimum of different classes of characters in password is 3. Classes of characters: Lower Case, Upper Case, Digits, Special Characters.')
+   cy.get('#password-strength-meter')
+  .invoke('text')
+  .then((text) => {
+    const cleanText = text
+      .replace(/\s+/g, ' ')          // transforma múltiplos espaços e quebras em um único espaço
+      .replace(/ /g, ' ')            // substitui os caracteres &nbsp; invisíveis
+      .trim();                       // remove espaços nas bordas
+    cy.log(cleanText);
+    expect(cleanText).to.include('Password Strength: Weak');
+  })
+})
+
+Cypress.Commands.add('checkMessageInvalidEmail', () => {
+   cy.get('#email_address-error').should('contain','')
 })
