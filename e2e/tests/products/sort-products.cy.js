@@ -1,6 +1,6 @@
 beforeEach(() => {
         cy.openWebPage()
-        cy.verifySearch()
+        cy.checkIfSearchIsCorrect()
     })
 
 describe.only('Sort products by product name', () => { 

@@ -6,32 +6,32 @@ describe ('Create Account',() => {
         cy.accessCreateAccountTab()  
     });
 
-    it('should create an account with valid credentials', function () { 
+    it('create an account with valid auth', function () { 
         cy.fillCreateAccountFields(validUser)
         cy.clickCreateAccountButton()
         cy.writeFile('fixtures/generatedUser.json', validUser)
         cy.validateCreateAccountSucess(validUser)
     })
 
-    it('should try to create an account that already exists', function () { 
+    it('create an account that already exists', function () { 
         cy.fillCreateAccountFields(validUser)
         cy.clickCreateAccountButton()
         cy.checkMessageAccountThatAlreadyExists() 
     })
 
-    it('should create an account with invalid credentials', function () { 
+    it('create an account with invalid auth', function () { 
         cy.fillCreateAccountFields(invalidUser)
         cy.clickCreateAccountButton()
         cy.checkMessageInvalidCrendentials()
     })
 
-    it.only('should create an account with invalid password', function () { 
+    it.only('create an account with invalid psw', function () { 
         cy.fillCreateAccountFields(invalidPsw)
         cy.clickCreateAccountButton()
         cy.checkMessageInvalidPsw()
     })
 
-    it('should create an account with invalid email', function () { 
+    it('create an account with invalid email', function () { 
         cy.fillCreateAccountFields(invalidEmail)
         cy.clickCreateAccountButton()
         cy.checkMessageInvalidCrendentials()

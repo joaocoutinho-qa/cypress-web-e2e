@@ -1,2 +1,0 @@
-import './authCommands'
-import './productsCommands'

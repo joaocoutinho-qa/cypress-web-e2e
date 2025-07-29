@@ -1,20 +1,3 @@
-Cypress.Commands.add('verifySearch', () => {
-     cy.get('#search')                                        
-            .should('be.visible')
-            .clear()
-            .type('t-shirt')
-
-        cy.get('.actions > .action')
-            .should('be.visible')
-            .click()
-
-        cy.url().should('eq', 'https://magento.softwaretestingboard.com/catalogsearch/result/?q=t-shirt')
-
-        cy.get('#search')
-            .should('be.visible')
-            .and('have.value','t-shirt')
-})
-
 Cypress.Commands.add('verifyIfProductsAreListed',() => {
     cy.get('li.product-item', { timeout: 10000 }).each(($el) => {
     cy.get('.price', {timeout: 10000}).should('be.visible')
@@ -24,6 +7,13 @@ Cypress.Commands.add('verifyIfProductsAreListed',() => {
       .and('include', '.jpg')
     })
 })
+
+Cypress.Commands.add('verifyIfProductsAreNotListed',() => {
+    cy.get('li.product-item', { timeout: 10000 }).should('not.exist');
+    cy.get('.price', { timeout: 10000 }).should('not.exist');
+    cy.get('.product-image-photo', { timeout: 10000 }).should('not.exist');
+})
+
 
 Cypress.Commands.add('verifyDescendent',(sortOption) => {
     cy.get('#sorter')
