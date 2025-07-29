@@ -50,7 +50,7 @@ describe('Search products', () => {
             .should('be.visible')
             .click()
 
-        cy.url().should('eq', 'https://magento.softwaretestingboard.com/catalogsearch/result/?q=invalidProduct')
+        cy.url().should('eq', 'https://magento.softwaretestingboard.com/catalogsearch/result/?q=noExistentProduct')
 
         cy.get('#search')
             .should('be.visible')

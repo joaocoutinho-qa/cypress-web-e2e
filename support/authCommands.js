@@ -41,7 +41,7 @@ Cypress.Commands.add('validateCreateAccountSucess', (user) => {
         .should('contain', user.email)
 })
 
-Cypress.Commands.add('checkMessageAccountThatAlreadyexists', () => {
+Cypress.Commands.add('checkMessageAccountThatAlreadyExists', () => {
     cy.get('.message-error > div').should('have.text','There is already an account with this email address. If you are sure that it is your email address, click here to get your password and access your account.')
 })
 
