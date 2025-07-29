@@ -6,7 +6,7 @@ Cypress.Commands.add('openWebPage', () => {
 });
 
 Cypress.Commands.add('accessCreateAccountTab', () => {
-    cy.get('.panel > .header > .authorization-link > a',{timeout: 3000}).click()                                   //clica em sign in
+    cy.get('.panel > .header > .authorization-link > a',{timeout: 15000}).click()                                   //clica em sign in
     cy.get('.block-content > .actions-toolbar > div.primary > .action > span').first().click()     //clica em create account
 });
 

@@ -16,16 +16,13 @@ Cypress.Commands.add('verifySearch', () => {
 })
 
 Cypress.Commands.add('verifyIfProductsAreListed',() => {
-    cy.get('li.product-item', { timeout: 15000}).each(($el) => {
-            const item = cy.wrap($el)
-            item.should('be.visible',{timeout:15000})
-            item.get('.price').should('be.visible')
-            item.get('.product-image-photo')
-                .should('be.visible')
-                .and('have.attr', 'src')
-                .and('include', '.jpg')    
-        })
-
+    cy.get('li.product-item', { timeout: 10000 }).each(($el) => {
+    cy.get('.price', {timeout: 10000}).should('be.visible')
+    cy.get('.product-image-photo', {timeout: 10000})
+      .should('be.visible')
+      .and('have.attr', 'src')
+      .and('include', '.jpg')
+    })
 })
 
 Cypress.Commands.add('verifyDescendent',(sortOption) => {

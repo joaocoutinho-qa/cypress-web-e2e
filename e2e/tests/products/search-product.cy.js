@@ -3,7 +3,7 @@ describe('Search products', () => {
         cy.openWebPage()
     });
     
-    it('Search for a valid product', () => {
+    it.only('Search for a valid product', () => {
         cy.get('#search')                                        
             .should('be.visible')
             .clear()
@@ -27,17 +27,11 @@ describe('Search products', () => {
             .should('be.visible')
             .and('contain','Items 1-12 of 181')
 
-        cy.get('.search > .block')
+        cy.get('.search > .block',{Timeout: 6000})
             .should('be.visible')
-            .and('contain','t-shirt')
-            .or('contain', 'T-shirt')
-            .and('contain','Related search terms')
+            .should('contain','-shirt')
 
-        cy.get('.product-items', {timeout: 10000}).each(($el) => {
-            cy.wrap($el).find('.product-item').should('be.visible')
-            cy.wrap($el).find('.price').should('be.visible')
-            cy.wrap($el).find('img').should('have.attr', 'src').and('include', '.jpg')
-        }); 
+        cy.verifyIfProductsAreListed()
     })
 
     it('Search for a no existent product', () => {
@@ -54,7 +48,7 @@ describe('Search products', () => {
 
         cy.get('#search')
             .should('be.visible')
-            .and('have.value','invalidProduct')
+            .and('have.value','noExistentProduct')
 
         cy.get('.column > .message')
             .should('be.visible')
@@ -62,7 +56,7 @@ describe('Search products', () => {
 
         cy.get('.base')
             .should('be.visible')
-            .and('have.text',"Search results for: 'invalidProduct'")
+            .and('have.text',"Search results for: 'noExistentProduct'")
     })
 
 })

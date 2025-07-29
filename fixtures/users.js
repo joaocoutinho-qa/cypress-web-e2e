@@ -36,6 +36,7 @@ module.exports = {
     lastName: "Silva 3",
     email: randomEmail,
     password: "invalidpassword",
+    confirmation: "invalidpassword"
   },
 
   invalidEmail: {
